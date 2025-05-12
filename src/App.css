@@ -1,0 +1,157 @@
+/* src/App.css */
+/* Reset mặc định */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: linear-gradient(to right, #fce4ec, #e1bee7);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* Layout styles */
+.d-flex {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 200px;
+  background-color: #6d2077;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+  z-index: 1000;
+  overflow-x: hidden;
+  text-align: left;
+}
+
+.sidebar.collapsed {
+  width: 50px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  height: 50px;
+}
+
+.sidebar-header h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toggle-btn {
+  background-color: #fff;
+  color: #6d2077;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.toggle-btn:hover {
+  background-color: #e1bee7;
+}
+
+.sidebar-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar-menu li {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-menu a:hover {
+  background-color: #4b1652;
+}
+
+.sidebar-menu i {
+  margin-right: 8px;
+  min-width: 20px;
+  font-size: 1rem;
+}
+
+/* Content styles */
+.content {
+  flex-grow: 1;
+  margin-left: 200px; /* Thêm margin-left để không bị đè bởi sidebar */
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: flex-start; /* Căn đầu theo chiều dọc */
+  transition: margin-left 0.3s ease;
+  min-height: 100vh;
+}
+
+.sidebar.collapsed ~ .content {
+  margin-left: 50px; /* Điều chỉnh margin-left khi sidebar collapsed */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 50px;
+  }
+
+  .content {
+    margin-left: 50px;
+  }
+
+  .sidebar.collapsed ~ .content {
+    margin-left: 50px;
+  }
+
+  .sidebar-menu span {
+    display: none;
+  }
+
+  .sidebar-menu li {
+    padding: 4px 8px;
+  }
+
+  .sidebar-menu a {
+    font-size: 0.75rem;
+  }
+
+  .sidebar-menu i {
+    margin-right: 0;
+    min-width: 14px;
+    font-size: 0.75rem;
+  }
+
+  .sidebar-header h3 {
+    font-size: 1rem;
+  }
+}
