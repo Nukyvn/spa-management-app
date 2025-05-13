@@ -1,0 +1,21 @@
+name: Build and Deploy
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.18.3'
+      - run: npm install
+      - run: npm run build
+      - uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ftp.panda.store
+          username: ftpuser@panda.store
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./build/
+          server-dir: /public_html/
