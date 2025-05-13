@@ -7,4 +7,4 @@
 1. Cài Node.js và MySQL.
 2. Tạo database:
    ```sql
-   CREATE DATABASE spa_management;
+   CREATE DATABASE spa_management;# Test GitHub Actions
