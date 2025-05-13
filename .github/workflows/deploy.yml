@@ -1,7 +1,7 @@
 name: Build and Deploy
 on:
   push:
-    branches: [main]
+    branches: [master]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,7 +15,7 @@ jobs:
       - uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ftp.panda.store
-          username: ftpuser@panda.store
+          username: panda@panda.store
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./build/
           server-dir: /public_html/
