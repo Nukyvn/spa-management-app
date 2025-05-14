@@ -4,7 +4,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 5173,
-    strictPort: true,
+    port: 5173
   },
+  define: {
+    'import.meta.env.VITE_API_URL': JSON.stringify('http://api.panda.store')
+  }
 });
