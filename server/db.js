@@ -5,9 +5,9 @@ dotenv.config();
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'spa_management',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'spa_management',
+  user: process.env.DB_USER || 'gapxpqcv_spa_management',
+  password: process.env.DB_PASSWORD || 'panda.store',
+  database: process.env.DB_NAME || 'gapxpqcv_spa_management',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
