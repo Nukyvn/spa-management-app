@@ -1,10 +1,16 @@
-import mysql from "mysql2/promise";
+import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const pool = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "", // Thay bằng mật khẩu MySQL
-  database: "spa_management",
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'spa_management',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_NAME || 'spa_management',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 export default pool;
