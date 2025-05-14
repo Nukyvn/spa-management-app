@@ -6,7 +6,7 @@ const app = express();
 
 // Cấu hình CORS
 app.use(cors({
-  origin: ["http://panda.store", "http://frontend.panda.store"],
+  origin: ["http://localhost:5173"], // Cho phép origin của frontend cục bộ
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type"],
 }));
